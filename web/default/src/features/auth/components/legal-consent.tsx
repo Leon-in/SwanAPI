@@ -47,7 +47,7 @@ export function LegalConsent({
         className='text-muted-foreground items-start gap-1 text-left text-xs leading-5 font-normal'
       >
         <span>
-          {t('I have read and agree to the')}{' '}
+          我已阅读并同意{' '}
           {hasUserAgreement && (
             <a
               href='/user-agreement'
@@ -58,7 +58,7 @@ export function LegalConsent({
               {t('User Agreement')}
             </a>
           )}
-          {hasUserAgreement && hasPrivacyPolicy && ' and the '}
+          {hasUserAgreement && hasPrivacyPolicy && '和'}
           {hasPrivacyPolicy && (
             <a
               href='/privacy-policy'

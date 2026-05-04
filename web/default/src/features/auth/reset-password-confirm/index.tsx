@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 import { api } from '@/lib/api'
 import { copyToClipboard } from '@/lib/copy-to-clipboard'
+import { SWAN_PUBLIC_BRAND } from '@/lib/public-branding'
 import { useCountdown } from '@/hooks/use-countdown'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
@@ -89,13 +90,16 @@ export function ResetPasswordConfirm({
     <AuthLayout>
       <div className='w-full space-y-8'>
         <div className='space-y-2'>
+          <p className='text-xs font-semibold tracking-[0.16em] text-[#d7ff62] uppercase'>
+            {SWAN_PUBLIC_BRAND.eyebrow}
+          </p>
           <h2 className='text-center text-2xl font-semibold tracking-tight sm:text-left'>
-            {t('Reset password')}
+            {t('重置密码')}
           </h2>
           <p className='text-muted-foreground text-left text-sm sm:text-base'>
             {newPassword
-              ? 'Your password has been reset successfully'
-              : 'Confirm the reset request to generate a new password.'}
+              ? '密码已重置成功'
+              : '请确认重置请求以生成新密码。'}
           </p>
         </div>
 
@@ -160,10 +164,10 @@ export function ResetPasswordConfirm({
             }
           >
             {newPassword
-              ? 'Return to login'
+              ? '返回登录'
               : isActive
-                ? `Retry (${secondsLeft}s)`
-                : 'Confirm reset password'}
+                ? `重试（${secondsLeft} 秒）`
+                : '确认重置密码'}
           </Button>
 
           {!newPassword && (

@@ -1,10 +1,20 @@
 import { useTranslation } from 'react-i18next'
+import {
+  SWAN_PUBLIC_BRAND,
+  SWAN_PUBLIC_LAYOUT,
+  SWAN_PUBLIC_LAYOUT_ROOT,
+} from '@/lib/public-branding'
 import { useAuthStore } from '@/stores/auth-store'
 import { Markdown } from '@/components/ui/markdown'
 import { PublicLayout } from '@/components/layout'
-import { Footer } from '@/components/layout/components/footer'
-import { CTA, Features, Hero, HowItWorks, Stats } from './components'
+import { SwanLanding } from './components'
 import { useHomePageContent } from './hooks'
+
+const swanHeaderLogo = (
+  <span className='flex size-full items-center justify-center rounded-lg border border-white/15 bg-[#071312] text-base'>
+    {SWAN_PUBLIC_BRAND.logo}
+  </span>
+)
 
 export function Home() {
   const { t } = useTranslation()
@@ -14,7 +24,14 @@ export function Home() {
 
   if (!isLoaded) {
     return (
-      <PublicLayout showMainContainer={false}>
+      <PublicLayout
+        showMainContainer={false}
+        logo={swanHeaderLogo}
+        siteName={SWAN_PUBLIC_BRAND.name}
+        headerProps={{ className: SWAN_PUBLIC_LAYOUT.headerClassName }}
+        rootClassName={SWAN_PUBLIC_LAYOUT_ROOT}
+        showThemeSwitch={SWAN_PUBLIC_LAYOUT.showThemeSwitch}
+      >
         <main className='flex min-h-screen items-center justify-center'>
           <div className='text-muted-foreground'>{t('Loading...')}</div>
         </main>
@@ -24,7 +41,14 @@ export function Home() {
 
   if (content) {
     return (
-      <PublicLayout showMainContainer={false}>
+      <PublicLayout
+        showMainContainer={false}
+        logo={swanHeaderLogo}
+        siteName={SWAN_PUBLIC_BRAND.name}
+        headerProps={{ className: SWAN_PUBLIC_LAYOUT.headerClassName }}
+        rootClassName={SWAN_PUBLIC_LAYOUT_ROOT}
+        showThemeSwitch={SWAN_PUBLIC_LAYOUT.showThemeSwitch}
+      >
         <main className='overflow-x-hidden'>
           {isUrl ? (
             <iframe
@@ -43,13 +67,15 @@ export function Home() {
   }
 
   return (
-    <PublicLayout showMainContainer={false}>
-      <Hero isAuthenticated={isAuthenticated} />
-      <Stats />
-      <Features />
-      <HowItWorks />
-      <CTA isAuthenticated={isAuthenticated} />
-      <Footer />
+    <PublicLayout
+      showMainContainer={false}
+      logo={swanHeaderLogo}
+      siteName={SWAN_PUBLIC_BRAND.name}
+      headerProps={{ className: SWAN_PUBLIC_LAYOUT.headerClassName }}
+      rootClassName={SWAN_PUBLIC_LAYOUT_ROOT}
+      showThemeSwitch={SWAN_PUBLIC_LAYOUT.showThemeSwitch}
+    >
+      <SwanLanding isAuthenticated={isAuthenticated} />
     </PublicLayout>
   )
 }

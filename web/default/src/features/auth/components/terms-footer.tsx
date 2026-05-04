@@ -16,8 +16,8 @@ export function TermsFooter({
   const { t } = useTranslation()
   const text =
     variant === 'sign-in'
-      ? 'By clicking sign in, you agree to our'
-      : 'By creating an account, you agree to our'
+      ? '点击登录即表示您同意我们的'
+      : '创建账户即表示您同意我们的'
 
   const hasUserAgreement = Boolean(status?.user_agreement_enabled)
   const hasPrivacyPolicy = Boolean(status?.privacy_policy_enabled)
@@ -27,11 +27,11 @@ export function TermsFooter({
   }
 
   const agreementLink = {
-    label: 'User Agreement',
+    label: t('User Agreement'),
     href: '/user-agreement',
   }
   const privacyLink = {
-    label: 'Privacy Policy',
+    label: t('Privacy Policy'),
     href: '/privacy-policy',
   }
 
@@ -59,7 +59,7 @@ export function TermsFooter({
       {secondLink && (
         <>
           {' '}
-          {t('and')}{' '}
+          和{' '}
           <a
             href={secondLink.href}
             className='hover:text-primary underline underline-offset-4'

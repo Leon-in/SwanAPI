@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
+import { SWAN_PUBLIC_BRAND } from '@/lib/public-branding'
 import { useStatus } from '@/hooks/use-status'
 import { AuthLayout } from '../auth-layout'
 import { TermsFooter } from '../components/terms-footer'
@@ -13,16 +14,19 @@ export function SignUp() {
     <AuthLayout>
       <div className='w-full space-y-8'>
         <div className='space-y-2'>
+          <p className='text-xs font-semibold tracking-[0.16em] text-[#d7ff62] uppercase'>
+            {SWAN_PUBLIC_BRAND.eyebrow}
+          </p>
           <h2 className='text-center text-2xl font-semibold tracking-tight sm:text-left'>
-            {t('Create an account')}
+            {t('注册天鹅 API')}
           </h2>
           <p className='text-muted-foreground text-left text-sm sm:text-base'>
-            {t('Already have an account?')}{' '}
+            {t('已经有账号了？')}{' '}
             <Link
               to='/sign-in'
               className='hover:text-primary font-medium underline underline-offset-4'
             >
-              {t('Sign in')}
+              {t('去登录')}
             </Link>
             .
           </p>

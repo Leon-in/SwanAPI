@@ -1,6 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
 import { Construction } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import {
+  SWAN_PUBLIC_BRAND,
+  SWAN_PUBLIC_LAYOUT,
+  SWAN_PUBLIC_LAYOUT_ROOT,
+} from '@/lib/public-branding'
 import { Markdown } from '@/components/ui/markdown'
 import { Skeleton } from '@/components/ui/skeleton'
 import { PublicLayout } from '@/components/layout'
@@ -39,55 +44,30 @@ function EmptyAboutState() {
         </div>
         <div className='space-y-4 text-sm'>
           <p>
-            {t('New API Project Repository:')}{' '}
+            {t('Open-source repository:')}{' '}
             <a
               href='https://github.com/QuantumNous/new-api'
               target='_blank'
               rel='noopener noreferrer'
               className='text-primary hover:underline'
             >
-              {t('https://github.com/QuantumNous/new-api')}
+              {t('View source code')}
             </a>
           </p>
           <p className='text-muted-foreground'>
+            © {currentYear} {SWAN_PUBLIC_BRAND.name} ·{' '}
+            {t('View deployment documentation in')}{' '}
             <a
-              href='https://github.com/QuantumNous/new-api'
+              href={SWAN_PUBLIC_BRAND.docsUrl}
               target='_blank'
               rel='noopener noreferrer'
               className='text-primary hover:underline'
             >
-              {t('NewAPI')}
-            </a>{' '}
-            © {currentYear}{' '}
-            <a
-              href='https://github.com/QuantumNous'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-primary hover:underline'
-            >
-              {t('QuantumNous')}
-            </a>{' '}
-            {t('| Based on')}{' '}
-            <a
-              href='https://github.com/songquanpeng/one-api'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-primary hover:underline'
-            >
-              {t('One API')}
-            </a>{' '}
-            © 2023{' '}
-            <a
-              href='https://github.com/songquanpeng'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-primary hover:underline'
-            >
-              {t('JustSong')}
+              {t('the docs center')}
             </a>
           </p>
           <p className='text-muted-foreground'>
-            {t('This project must be used in compliance with the')}{' '}
+            {t('This deployment must be used in compliance with the')}{' '}
             <a
               href='https://github.com/QuantumNous/new-api/blob/main/LICENSE'
               target='_blank'
@@ -118,7 +98,17 @@ export function About() {
 
   if (isLoading) {
     return (
-      <PublicLayout>
+      <PublicLayout
+        rootClassName={SWAN_PUBLIC_LAYOUT_ROOT}
+        showThemeSwitch={SWAN_PUBLIC_LAYOUT.showThemeSwitch}
+        logo={
+          <span className='flex size-full items-center justify-center rounded-lg border border-white/15 bg-[#071312] text-base'>
+            {SWAN_PUBLIC_BRAND.logo}
+          </span>
+        }
+        siteName={SWAN_PUBLIC_BRAND.name}
+        headerProps={{ className: SWAN_PUBLIC_LAYOUT.headerClassName }}
+      >
         <div className='mx-auto flex max-w-4xl flex-col gap-4 py-12'>
           <Skeleton className='h-8 w-[45%]' />
           <Skeleton className='h-4 w-full' />
@@ -131,7 +121,17 @@ export function About() {
 
   if (!hasContent) {
     return (
-      <PublicLayout>
+      <PublicLayout
+        rootClassName={SWAN_PUBLIC_LAYOUT_ROOT}
+        showThemeSwitch={SWAN_PUBLIC_LAYOUT.showThemeSwitch}
+        logo={
+          <span className='flex size-full items-center justify-center rounded-lg border border-white/15 bg-[#071312] text-base'>
+            {SWAN_PUBLIC_BRAND.logo}
+          </span>
+        }
+        siteName={SWAN_PUBLIC_BRAND.name}
+        headerProps={{ className: SWAN_PUBLIC_LAYOUT.headerClassName }}
+      >
         <EmptyAboutState />
       </PublicLayout>
     )
@@ -139,7 +139,18 @@ export function About() {
 
   if (isUrl) {
     return (
-      <PublicLayout showMainContainer={false}>
+      <PublicLayout
+        showMainContainer={false}
+        rootClassName={SWAN_PUBLIC_LAYOUT_ROOT}
+        showThemeSwitch={SWAN_PUBLIC_LAYOUT.showThemeSwitch}
+        logo={
+          <span className='flex size-full items-center justify-center rounded-lg border border-white/15 bg-[#071312] text-base'>
+            {SWAN_PUBLIC_BRAND.logo}
+          </span>
+        }
+        siteName={SWAN_PUBLIC_BRAND.name}
+        headerProps={{ className: SWAN_PUBLIC_LAYOUT.headerClassName }}
+      >
         <iframe
           src={rawContent}
           className='h-[calc(100vh-3.5rem)] w-full border-0'
@@ -150,8 +161,18 @@ export function About() {
   }
 
   return (
-    <PublicLayout>
-      <div className='mx-auto max-w-6xl px-4 py-8'>
+    <PublicLayout
+      rootClassName={SWAN_PUBLIC_LAYOUT_ROOT}
+      showThemeSwitch={SWAN_PUBLIC_LAYOUT.showThemeSwitch}
+      logo={
+        <span className='flex size-full items-center justify-center rounded-lg border border-white/15 bg-[#071312] text-base'>
+          {SWAN_PUBLIC_BRAND.logo}
+        </span>
+      }
+      siteName={SWAN_PUBLIC_BRAND.name}
+      headerProps={{ className: SWAN_PUBLIC_LAYOUT.headerClassName }}
+    >
+      <div className='mx-auto max-w-6xl px-4 py-8 text-white'>
         {isHtml ? (
           <div
             className='prose prose-neutral dark:prose-invert max-w-none'

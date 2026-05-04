@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
-import i18next from 'i18next'
-import { toast } from 'sonner'
 import { getHomePageContent } from '../api'
+import { shouldSuppressHomePageContentError } from '../lib/home-page-content-error'
 import type { HomePageContentResult } from '../types'
 
 const STORAGE_KEY = 'home_page_content'
@@ -42,7 +41,9 @@ export function useHomePageContent(): HomePageContentResult {
         if (!mounted) return
         // eslint-disable-next-line no-console
         console.error('Failed to load home page content:', error)
-        toast.error(i18next.t('Failed to load home page content'))
+        if (!shouldSuppressHomePageContentError(error)) {
+          // reserved for future stricter handling
+        }
       } finally {
         if (mounted) {
           setIsLoaded(true)

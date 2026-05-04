@@ -1,5 +1,10 @@
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import {
+  SWAN_PUBLIC_BRAND,
+  SWAN_PUBLIC_LAYOUT,
+  SWAN_PUBLIC_LAYOUT_ROOT,
+} from '@/lib/public-branding'
 import { PublicLayout } from '@/components/layout'
 import { PageTransition } from '@/components/page-transition'
 import {
@@ -128,7 +133,18 @@ export function Pricing() {
 
   if (isLoading) {
     return (
-      <PublicLayout showMainContainer={false}>
+      <PublicLayout
+        showMainContainer={false}
+        rootClassName={SWAN_PUBLIC_LAYOUT_ROOT}
+        showThemeSwitch={SWAN_PUBLIC_LAYOUT.showThemeSwitch}
+        logo={
+          <span className='flex size-full items-center justify-center rounded-lg border border-white/15 bg-[#071312] text-base'>
+            {SWAN_PUBLIC_BRAND.logo}
+          </span>
+        }
+        siteName={SWAN_PUBLIC_BRAND.name}
+        headerProps={{ className: SWAN_PUBLIC_LAYOUT.headerClassName }}
+      >
         <div className='mx-auto w-full max-w-[1800px] px-3 pt-16 pb-8 sm:px-6 sm:pt-20 sm:pb-10 xl:px-8'>
           <LoadingSkeleton viewMode={viewMode} />
         </div>
@@ -137,7 +153,18 @@ export function Pricing() {
   }
 
   return (
-    <PublicLayout showMainContainer={false}>
+    <PublicLayout
+      showMainContainer={false}
+      rootClassName={SWAN_PUBLIC_LAYOUT_ROOT}
+      showThemeSwitch={SWAN_PUBLIC_LAYOUT.showThemeSwitch}
+      logo={
+        <span className='flex size-full items-center justify-center rounded-lg border border-white/15 bg-[#071312] text-base'>
+          {SWAN_PUBLIC_BRAND.logo}
+        </span>
+      }
+      siteName={SWAN_PUBLIC_BRAND.name}
+      headerProps={{ className: SWAN_PUBLIC_LAYOUT.headerClassName }}
+    >
       <div className='relative'>
         <div
           aria-hidden

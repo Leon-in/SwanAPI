@@ -9,6 +9,7 @@ import {
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import i18next from 'i18next'
 import { toast } from 'sonner'
+import { SWAN_PUBLIC_BRAND } from '@/lib/public-branding'
 import { useAuthStore } from '@/stores/auth-store'
 import { getStatus } from '@/lib/api'
 import '@/lib/dayjs'
@@ -102,6 +103,7 @@ const rootElement = document.getElementById('root')!
       ) as HTMLMetaElement | null
       if (metaTitle) metaTitle.setAttribute('content', name)
     }
+    apply(SWAN_PUBLIC_BRAND.name)
     // Cache-first
     try {
       const saved = localStorage.getItem('status')

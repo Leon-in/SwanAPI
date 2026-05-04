@@ -1,6 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
 import { FileWarning } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import {
+  SWAN_PUBLIC_BRAND,
+  SWAN_PUBLIC_LAYOUT,
+  SWAN_PUBLIC_LAYOUT_ROOT,
+} from '@/lib/public-branding'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Markdown } from '@/components/ui/markdown'
@@ -46,10 +51,21 @@ export function LegalDocument({
   const isUrl = hasContent && isValidUrl(rawContent)
   const isHtml = hasContent && !isUrl && isLikelyHtml(rawContent)
   const success = data?.success ?? false
+  const publicLayoutProps = {
+    rootClassName: SWAN_PUBLIC_LAYOUT_ROOT,
+    showThemeSwitch: SWAN_PUBLIC_LAYOUT.showThemeSwitch,
+    logo: (
+      <span className='flex size-full items-center justify-center rounded-lg border border-white/15 bg-[#071312] text-base'>
+        {SWAN_PUBLIC_BRAND.logo}
+      </span>
+    ),
+    siteName: SWAN_PUBLIC_BRAND.name,
+    headerProps: { className: SWAN_PUBLIC_LAYOUT.headerClassName },
+  } as const
 
   if (isLoading) {
     return (
-      <PublicLayout>
+      <PublicLayout {...publicLayoutProps}>
         <div className='mx-auto flex max-w-4xl flex-col gap-4 py-12'>
           <Skeleton className='h-8 w-[45%]' />
           <Skeleton className='h-4 w-full' />
@@ -62,7 +78,7 @@ export function LegalDocument({
 
   if (!success || !hasContent) {
     return (
-      <PublicLayout>
+      <PublicLayout {...publicLayoutProps}>
         <div className='mx-auto max-w-2xl py-12'>
           <Card className='border-dashed'>
             <CardHeader className='flex flex-row items-center gap-4'>
@@ -84,7 +100,7 @@ export function LegalDocument({
 
   if (isUrl) {
     return (
-      <PublicLayout>
+      <PublicLayout {...publicLayoutProps}>
         <div className='mx-auto max-w-2xl py-12'>
           <Card>
             <CardHeader>
@@ -109,7 +125,7 @@ export function LegalDocument({
   }
 
   return (
-    <PublicLayout>
+    <PublicLayout {...publicLayoutProps}>
       <div className='mx-auto max-w-4xl space-y-6 py-12'>
         <div className='space-y-2'>
           <h1 className='text-3xl font-semibold tracking-tight'>{title}</h1>

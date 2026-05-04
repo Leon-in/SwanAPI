@@ -2,6 +2,11 @@ import { useMemo } from 'react'
 import { useParams, useNavigate, useSearch } from '@tanstack/react-router'
 import { ArrowLeft } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import {
+  SWAN_PUBLIC_BRAND,
+  SWAN_PUBLIC_LAYOUT,
+  SWAN_PUBLIC_LAYOUT_ROOT,
+} from '@/lib/public-branding'
 import { getLobeIcon } from '@/lib/lobe-icon'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -826,9 +831,21 @@ export function ModelDetails() {
     navigate({ to: '/pricing', search })
   }
 
+  const publicLayoutProps = {
+    rootClassName: SWAN_PUBLIC_LAYOUT_ROOT,
+    showThemeSwitch: SWAN_PUBLIC_LAYOUT.showThemeSwitch,
+    logo: (
+      <span className='flex size-full items-center justify-center rounded-lg border border-white/15 bg-[#071312] text-base'>
+        {SWAN_PUBLIC_BRAND.logo}
+      </span>
+    ),
+    siteName: SWAN_PUBLIC_BRAND.name,
+    headerProps: { className: SWAN_PUBLIC_LAYOUT.headerClassName },
+  } as const
+
   if (isLoading) {
     return (
-      <PublicLayout>
+      <PublicLayout {...publicLayoutProps}>
         <div className='mx-auto max-w-2xl px-4 sm:px-6'>
           <Skeleton className='mb-4 h-5 w-16' />
           <div className='space-y-2'>
@@ -851,7 +868,7 @@ export function ModelDetails() {
 
   if (!model) {
     return (
-      <PublicLayout>
+      <PublicLayout {...publicLayoutProps}>
         <div className='mx-auto max-w-2xl px-4 text-center sm:px-6'>
           <h2 className='mb-1 text-base font-semibold'>
             {t('Model not found')}
@@ -868,7 +885,7 @@ export function ModelDetails() {
   }
 
   return (
-    <PublicLayout>
+    <PublicLayout {...publicLayoutProps}>
       <div className='mx-auto max-w-2xl px-4 sm:px-6'>
         <Button
           variant='ghost'
