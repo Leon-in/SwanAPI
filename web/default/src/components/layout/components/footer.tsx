@@ -3,6 +3,10 @@ import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 import { useSystemConfig } from '@/hooks/use-system-config'
+import {
+  SWAN_SOURCE_REPOSITORY_URL,
+  UPSTREAM_REPOSITORY_URL,
+} from '@/components/source-availability-notice'
 
 interface FooterLink {
   text: string
@@ -60,11 +64,20 @@ function ProjectAttribution(props: { currentYear: number }) {
   const { t } = useTranslation()
 
   return (
-    <div className='text-muted-foreground/45 text-center text-xs sm:text-right'>
-      <span className='text-muted-foreground/45'>
-        &copy; {props.currentYear}{' '}
+    <div className='text-muted-foreground/45 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-xs sm:justify-end sm:text-right'>
+      <span>&copy; {props.currentYear}</span>
+      <a
+        href={SWAN_SOURCE_REPOSITORY_URL}
+        target='_blank'
+        rel='noopener noreferrer'
+        className='text-foreground/70 font-medium transition-colors hover:text-foreground'
+      >
+        {t('SwanAPI source')}
+      </a>
+      <span>{t('based on')}</span>
+      <span>
         <a
-          href='https://github.com/QuantumNous/new-api'
+          href={UPSTREAM_REPOSITORY_URL}
           target='_blank'
           rel='noopener noreferrer'
           className='text-foreground/70 font-medium transition-colors hover:text-foreground'

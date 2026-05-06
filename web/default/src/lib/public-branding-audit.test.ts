@@ -41,4 +41,14 @@ describe('public branding audit', () => {
     expect(modelDetails).toContain('siteName: SWAN_PUBLIC_BRAND.name')
     expect(modelDetails).toContain('rootClassName: SWAN_PUBLIC_LAYOUT_ROOT')
   })
+
+  test('offers modified source code and upstream license links', () => {
+    const sourceNotice = readProjectFile(
+      'src/components/source-availability-notice.tsx'
+    )
+
+    expect(sourceNotice).toContain('https://github.com/Leon-in/SwanAPI')
+    expect(sourceNotice).toContain('https://github.com/QuantumNous/new-api')
+    expect(sourceNotice).toContain('AGPL v3.0 License')
+  })
 })

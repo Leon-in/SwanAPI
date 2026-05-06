@@ -9,6 +9,7 @@ import {
 import { Markdown } from '@/components/ui/markdown'
 import { Skeleton } from '@/components/ui/skeleton'
 import { PublicLayout } from '@/components/layout'
+import { SourceAvailabilityNotice } from '@/components/source-availability-notice'
 import { getAboutContent } from './api'
 
 function isValidUrl(value: string) {
@@ -43,17 +44,6 @@ function EmptyAboutState() {
           </p>
         </div>
         <div className='space-y-4 text-sm'>
-          <p>
-            {t('Open-source repository:')}{' '}
-            <a
-              href='https://github.com/QuantumNous/new-api'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-primary hover:underline'
-            >
-              {t('View source code')}
-            </a>
-          </p>
           <p className='text-muted-foreground'>
             © {currentYear} {SWAN_PUBLIC_BRAND.name} ·{' '}
             {t('View deployment documentation in')}{' '}
@@ -66,18 +56,7 @@ function EmptyAboutState() {
               {t('the docs center')}
             </a>
           </p>
-          <p className='text-muted-foreground'>
-            {t('This deployment must be used in compliance with the')}{' '}
-            <a
-              href='https://github.com/QuantumNous/new-api/blob/main/LICENSE'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-primary hover:underline'
-            >
-              {t('AGPL v3.0 License')}
-            </a>
-            .
-          </p>
+          <SourceAvailabilityNotice />
         </div>
       </div>
     </div>
@@ -151,11 +130,16 @@ export function About() {
         siteName={SWAN_PUBLIC_BRAND.name}
         headerProps={{ className: SWAN_PUBLIC_LAYOUT.headerClassName }}
       >
-        <iframe
-          src={rawContent}
-          className='h-[calc(100vh-3.5rem)] w-full border-0'
-          title={t('About')}
-        />
+        <div className='pt-16'>
+          <iframe
+            src={rawContent}
+            className='h-[calc(100vh-8.5rem)] w-full border-0'
+            title={t('About')}
+          />
+          <div className='px-4 pb-4'>
+            <SourceAvailabilityNotice />
+          </div>
+        </div>
       </PublicLayout>
     )
   }
@@ -183,6 +167,7 @@ export function About() {
             {rawContent}
           </Markdown>
         )}
+        <SourceAvailabilityNotice className='mt-8' />
       </div>
     </PublicLayout>
   )

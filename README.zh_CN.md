@@ -449,6 +449,10 @@ docker run --name new-api -d --restart always \
 
 本项目为开源项目，在 [One API](https://github.com/songquanpeng/one-api)（MIT 许可证）的基础上进行二次开发。
 
+天鹅 API 是基于 New API 的修改版部署。当前修改版的对应源码可在
+[Leon-in/SwanAPI](https://github.com/Leon-in/SwanAPI) 获取，源码提供说明见
+[SOURCE_NOTICE.md](./SOURCE_NOTICE.md)。
+
 如果您所在的组织政策不允许使用 AGPLv3 许可的软件，或您希望规避 AGPLv3 的开源义务，请发送邮件至：[support@quantumnous.com](mailto:support@quantumnous.com)
 
 ---

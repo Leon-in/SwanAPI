@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Markdown } from '@/components/ui/markdown'
 import { Skeleton } from '@/components/ui/skeleton'
 import { PublicLayout } from '@/components/layout'
+import { SourceAvailabilityNotice } from '@/components/source-availability-notice'
 import type { LegalDocumentResponse } from './types'
 
 type LegalDocumentProps = {
@@ -93,6 +94,7 @@ export function LegalDocument({
               </div>
             </CardHeader>
           </Card>
+          <SourceAvailabilityNotice className='mt-6' />
         </div>
       </PublicLayout>
     )
@@ -119,6 +121,7 @@ export function LegalDocument({
               </Button>
             </CardContent>
           </Card>
+          <SourceAvailabilityNotice className='mt-6' />
         </div>
       </PublicLayout>
     )
@@ -141,6 +144,7 @@ export function LegalDocument({
             {rawContent}
           </Markdown>
         )}
+        <SourceAvailabilityNotice />
       </div>
     </PublicLayout>
   )
