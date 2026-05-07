@@ -23,7 +23,9 @@ import { usePricingData } from './hooks/use-pricing-data'
 
 export function Pricing() {
   const { t } = useTranslation()
-  const [selectedModelName, setSelectedModelName] = useState<string | null>(null)
+  const [selectedModelName, setSelectedModelName] = useState<string | null>(
+    null
+  )
 
   const {
     models,
@@ -66,18 +68,16 @@ export function Pricing() {
     clearSearch,
   } = useFilters(models || [])
 
-  const handleModelClick = useCallback(
-    (modelName: string) => {
-      setSelectedModelName(modelName)
-    },
-    []
-  )
+  const handleModelClick = useCallback((modelName: string) => {
+    setSelectedModelName(modelName)
+  }, [])
 
   const selectedModel = useMemo(
     () =>
       selectedModelName
-        ? (models || []).find((model) => model.model_name === selectedModelName) ||
-          null
+        ? (models || []).find(
+            (model) => model.model_name === selectedModelName
+          ) || null
         : null,
     [models, selectedModelName]
   )
@@ -175,8 +175,10 @@ export function Pricing() {
               'radial-gradient(ellipse 50% 40% at 80% 15%, oklch(0.65 0.15 200 / 60%) 0%, transparent 70%)',
               'radial-gradient(ellipse 40% 35% at 50% 70%, oklch(0.70 0.12 280 / 40%) 0%, transparent 70%)',
             ].join(', '),
-            maskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
+            maskImage:
+              'linear-gradient(to bottom, black 40%, transparent 100%)',
+            WebkitMaskImage:
+              'linear-gradient(to bottom, black 40%, transparent 100%)',
           }}
         />
         <PageTransition className='relative mx-auto w-full max-w-[1800px] px-3 pt-16 pb-8 sm:px-6 sm:pt-20 sm:pb-10 xl:px-8'>
@@ -201,12 +203,14 @@ export function Pricing() {
               value={searchInput}
               onChange={setSearchInput}
               onClear={clearSearch}
-              placeholder={t('Search model name, provider, endpoint, or tag...')}
+              placeholder={t(
+                'Search model name, provider, endpoint, or tag...'
+              )}
               className='mx-auto mt-4 max-w-2xl sm:mt-6'
             />
           </header>
 
-          <div className='grid gap-4 xl:grid-cols-[330px_minmax(0,1fr)] 2xl:grid-cols-[330px_minmax(0,1fr)]'>
+          <div className='grid gap-4 xl:grid-cols-[330px_minmax(0,1fr)]'>
             <PricingSidebar
               quotaTypeFilter={quotaTypeFilter}
               endpointTypeFilter={endpointTypeFilter}
@@ -225,7 +229,7 @@ export function Pricing() {
               models={models || []}
               hasActiveFilters={hasActiveFilters}
               onClearFilters={clearFilters}
-              className='sticky top-20 hidden max-h-[calc(100vh-6rem)] overflow-y-auto xl:block'
+              className='hover-scrollbar sticky top-4 hidden max-h-[calc(100dvh-2rem)] self-start overflow-y-auto xl:block'
             />
 
             <main className='min-w-0 space-y-4'>

@@ -82,22 +82,24 @@ export function SwanLanding(props: SwanLandingProps) {
                 <Button
                   size='lg'
                   className='h-12 rounded-lg bg-[#d7ff62] px-5 font-bold text-[#101a12] hover:bg-[#e4ff88]'
-                  asChild
+                  render={
+                    <Link
+                      to={props.isAuthenticated ? '/dashboard' : '/sign-up'}
+                    />
+                  }
                 >
-                  <Link to={props.isAuthenticated ? '/dashboard' : '/sign-up'}>
-                    {props.isAuthenticated
-                      ? t(SWAN_HERO.dashboardCta)
-                      : t(SWAN_HERO.primaryCta)}
-                    <ArrowRight className='ml-2 size-4' />
-                  </Link>
+                  {props.isAuthenticated
+                    ? t(SWAN_HERO.dashboardCta)
+                    : t(SWAN_HERO.primaryCta)}
+                  <ArrowRight className='ml-2 size-4' />
                 </Button>
                 <Button
                   size='lg'
                   variant='outline'
                   className='h-12 rounded-lg border-white/20 bg-white/5 px-5 font-semibold text-white hover:bg-white/10 hover:text-white'
-                  asChild
+                  render={<Link to='/pricing' />}
                 >
-                  <Link to='/pricing'>{t(SWAN_HERO.secondaryCta)}</Link>
+                  {t(SWAN_HERO.secondaryCta)}
                 </Button>
               </div>
 

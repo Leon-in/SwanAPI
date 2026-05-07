@@ -20,7 +20,7 @@ export function PublicLayout(props: PublicLayoutProps) {
   return (
     <div
       className={cn(
-        'bg-background text-foreground relative min-h-svh overflow-hidden',
+        'bg-background text-foreground relative min-h-svh overflow-x-clip',
         props.rootClassName
       )}
     >
