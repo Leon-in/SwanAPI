@@ -181,7 +181,7 @@ export function PublicHeader(props: PublicHeaderProps) {
                   ) : (
                     <Button
                       size='sm'
-                      className='h-8 rounded-lg px-3.5 text-xs font-medium'
+                      className='h-8 rounded-lg border border-[#d7ff62]/50 !bg-[#d7ff62] px-3.5 text-xs font-bold !text-[#071312] shadow-[0_0_24px_rgba(215,255,98,0.18)] hover:!bg-[#e7ff8f] hover:!text-[#071312]'
                       render={<Link to='/sign-in' />}
                     >
                       {t('Sign in')}

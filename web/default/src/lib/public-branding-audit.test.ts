@@ -46,6 +46,15 @@ describe('public branding audit', () => {
     expect(modelDetails).toContain('rootClassName: SWAN_PUBLIC_LAYOUT_ROOT')
   })
 
+  test('keeps the public header sign-in button readable on the dark nav', () => {
+    const publicHeader = readProjectFile(
+      'src/components/layout/components/public-header.tsx'
+    )
+
+    expect(publicHeader).toContain('!bg-[#d7ff62]')
+    expect(publicHeader).toContain('!text-[#071312]')
+  })
+
   test('offers modified source code and upstream license links', () => {
     const sourceNotice = readProjectFile(
       'src/components/source-availability-notice.tsx'
