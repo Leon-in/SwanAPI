@@ -1,14 +1,14 @@
 export const SWAN_PUBLIC_BRAND = {
-  name: '天鹅 API',
-  logo: '🦢',
-  eyebrow: 'API 源头供给',
-  tagline: 'API 源头批发商，面向团队和工具站的模型供应入口。',
-  heroTitle: 'AI API 源头供应商',
+  name: 'API 上游提供商',
+  logo: 'API',
+  eyebrow: '多模型 API 上游供应',
+  tagline: 'API 上游供应，面向团队和工具站的模型供应入口。',
+  heroTitle: 'API 上游提供商',
   heroDescription:
     '聚合多协议接口与海量模型池，面向工作室、工具站与团队采购场景提供稳定、低价、持续可用的 API 供应。',
   docsUrl: 'https://docs.newapi.pro',
   supportLabel: '适合工作室、工具站、自动化团队与站群采购。',
-  attribution: '由天鹅 API 公共站点基础设施支持',
+  attribution: '由 API 上游提供商公共站点基础设施支持',
 } as const
 
 export const SWAN_PUBLIC_LAYOUT_ROOT = 'bg-[#071312] text-[#f4fff8]' as const

@@ -449,7 +449,7 @@ docker run --name new-api -d --restart always \
 
 本项目为开源项目，在 [One API](https://github.com/songquanpeng/one-api)（MIT 许可证）的基础上进行二次开发。
 
-天鹅 API 是基于 New API 的修改版部署。当前修改版的对应源码可在
+API 上游提供商是基于 New API 的修改版部署。当前修改版的对应源码可在
 [Leon-in/SwanAPI](https://github.com/Leon-in/SwanAPI) 获取，源码提供说明见
 [SOURCE_NOTICE.md](./SOURCE_NOTICE.md)。
 

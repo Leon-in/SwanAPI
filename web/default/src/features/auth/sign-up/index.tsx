@@ -18,7 +18,7 @@ export function SignUp() {
             {SWAN_PUBLIC_BRAND.eyebrow}
           </p>
           <h2 className='text-center text-2xl font-semibold tracking-tight sm:text-left'>
-            {t('注册天鹅 API')}
+            {t('注册 API 上游提供商')}
           </h2>
           <p className='text-muted-foreground text-left text-sm sm:text-base'>
             {t('已经有账号了？')}{' '}

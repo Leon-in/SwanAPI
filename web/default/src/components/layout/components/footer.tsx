@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 import { useSystemConfig } from '@/hooks/use-system-config'
 import {
-  SWAN_SOURCE_REPOSITORY_URL,
+  API_SOURCE_REPOSITORY_URL,
   UPSTREAM_REPOSITORY_URL,
 } from '@/components/source-availability-notice'
 
@@ -67,12 +67,12 @@ function ProjectAttribution(props: { currentYear: number }) {
     <div className='text-muted-foreground/45 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-xs sm:justify-end sm:text-right'>
       <span>&copy; {props.currentYear}</span>
       <a
-        href={SWAN_SOURCE_REPOSITORY_URL}
+        href={API_SOURCE_REPOSITORY_URL}
         target='_blank'
         rel='noopener noreferrer'
         className='text-foreground/70 font-medium transition-colors hover:text-foreground'
       >
-        {t('SwanAPI source')}
+        {t('Source code')}
       </a>
       <span>{t('based on')}</span>
       <span>

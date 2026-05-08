@@ -1,9 +1,9 @@
 export const SWAN_HERO = {
-  logo: '🦢',
-  brand: '天鹅 API',
-  eyebrow: 'API 源头供给',
-  badge: 'AI API 源头供应商',
-  title: 'AI API 源头供应商',
+  logo: 'API',
+  brand: 'API 上游提供商',
+  eyebrow: '多模型 API 上游供应',
+  badge: '多模型 API 上游供应',
+  title: 'API 上游提供商',
   description:
     '聚合多协议接口与海量模型池，面向工作室、工具站和自动化团队提供稳定供应、批量采购与源头计费。',
   primaryCta: '注册批发',
@@ -61,9 +61,9 @@ export const SWAN_BENEFITS = [
 ] as const
 
 export const SWAN_FOOTER = {
-  brand: '天鹅 API',
-  tagline: 'API 源头批发商，面向团队和工具站的模型供应入口。',
-  attribution: '由天鹅 API 公共站点基础设施支持',
+  brand: 'API 上游提供商',
+  tagline: 'API 上游供应，面向团队和工具站的模型供应入口。',
+  attribution: '由 API 上游提供商公共站点基础设施支持',
   links: [
     {
       label: '模型广场',

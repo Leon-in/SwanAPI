@@ -8,10 +8,10 @@ import {
 
 describe('swan landing content', () => {
   test('defines the required sales homepage copy', () => {
-    expect(SWAN_HERO.brand).toBe('天鹅 API')
-    expect(SWAN_HERO.logo).toBe('🦢')
-    expect(SWAN_HERO.badge).toBe('AI API 源头供应商')
-    expect(SWAN_HERO.title).toBe('AI API 源头供应商')
+    expect(SWAN_HERO.brand).toBe('API 上游提供商')
+    expect(SWAN_HERO.logo).toBe('API')
+    expect(SWAN_HERO.badge).toBe('多模型 API 上游供应')
+    expect(SWAN_HERO.title).toBe('API 上游提供商')
     expect(SWAN_HERO.primaryCta).toBe('注册批发')
     expect(SWAN_HERO.secondaryCta).toBe('查看价格')
   })
@@ -28,9 +28,11 @@ describe('swan landing content', () => {
     ])
   })
 
-  test('uses Swan API branding in the landing footer', () => {
-    expect(SWAN_FOOTER.brand).toBe('天鹅 API')
-    expect(SWAN_FOOTER.tagline).toContain('API 源头批发商')
-    expect(SWAN_FOOTER.attribution).toBe('由天鹅 API 公共站点基础设施支持')
+  test('uses upstream API provider branding in the landing footer', () => {
+    expect(SWAN_FOOTER.brand).toBe('API 上游提供商')
+    expect(SWAN_FOOTER.tagline).toContain('API 上游供应')
+    expect(SWAN_FOOTER.attribution).toBe(
+      '由 API 上游提供商公共站点基础设施支持'
+    )
   })
 })

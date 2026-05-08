@@ -205,11 +205,11 @@ export function SwanLanding(props: SwanLandingProps) {
                 {t('面向批发与长期供货')}
               </div>
               <h2 className='mt-4 text-2xl font-black text-white'>
-                {t('主打 AI API 源头供应商，不做单一协议，不做单一模型。')}
+                {t('主打 API 上游供应，不做单一协议，不做单一模型。')}
               </h2>
               <p className='mt-4 text-sm leading-7 text-[#a8c1bb]'>
                 {t(
-                  '天鹅 API 聚合多协议接口与海量模型货源，适合需要长期稳定供货、低价采购和批量分发的团队。'
+                  'API 上游提供商聚合多协议接口与海量模型货源，适合需要长期稳定供货、低价采购和批量分发的团队。'
                 )}
               </p>
             </section>

@@ -449,8 +449,8 @@ This project is licensed under the [GNU Affero General Public License v3.0 (AGPL
 
 This is an open-source project developed based on [One API](https://github.com/songquanpeng/one-api) (MIT License).
 
-Swan API is a modified deployment based on New API. The corresponding source
-code for this modified version is available at
+API upstream provider is a modified deployment based on New API. The corresponding
+source code for this modified version is available at
 [Leon-in/SwanAPI](https://github.com/Leon-in/SwanAPI). See
 [SOURCE_NOTICE.md](./SOURCE_NOTICE.md) for the source availability notice.
 

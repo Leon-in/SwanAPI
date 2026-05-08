@@ -6,10 +6,10 @@ import {
 } from './public-branding'
 
 describe('public branding', () => {
-  test('defines the shared Swan API brand for public pages', () => {
-    expect(SWAN_PUBLIC_BRAND.name).toBe('天鹅 API')
-    expect(SWAN_PUBLIC_BRAND.logo).toBe('🦢')
-    expect(SWAN_PUBLIC_BRAND.tagline).toContain('API 源头批发商')
+  test('defines the shared upstream API provider brand for public pages', () => {
+    expect(SWAN_PUBLIC_BRAND.name).toBe('API 上游提供商')
+    expect(SWAN_PUBLIC_BRAND.logo).toBe('API')
+    expect(SWAN_PUBLIC_BRAND.tagline).toContain('API 上游供应')
     expect(SWAN_PUBLIC_BRAND.docsUrl).toBe('https://docs.newapi.pro')
   })
 

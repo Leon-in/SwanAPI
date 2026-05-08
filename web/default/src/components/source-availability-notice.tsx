@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 
-export const SWAN_SOURCE_REPOSITORY_URL = 'https://github.com/Leon-in/SwanAPI'
+export const API_SOURCE_REPOSITORY_URL = 'https://github.com/Leon-in/SwanAPI'
 export const UPSTREAM_REPOSITORY_URL = 'https://github.com/QuantumNous/new-api'
-export const SWAN_LICENSE_URL = `${SWAN_SOURCE_REPOSITORY_URL}/blob/main/LICENSE`
+export const API_LICENSE_URL = `${API_SOURCE_REPOSITORY_URL}/blob/main/LICENSE`
 
 type SourceAvailabilityNoticeProps = {
   className?: string
@@ -22,12 +22,12 @@ export function SourceAvailabilityNotice(props: SourceAvailabilityNoticeProps) {
       <span>
         {t('Current deployment source:')}{' '}
         <a
-          href={SWAN_SOURCE_REPOSITORY_URL}
+          href={API_SOURCE_REPOSITORY_URL}
           target='_blank'
           rel='noopener noreferrer'
           className='text-foreground font-medium hover:underline'
         >
-          {t('View SwanAPI source code')}
+          {t('View modified source code')}
         </a>
       </span>
       <span>
@@ -46,7 +46,7 @@ export function SourceAvailabilityNotice(props: SourceAvailabilityNoticeProps) {
           'This modified deployment provides its corresponding source code under the'
         )}{' '}
         <a
-          href={SWAN_LICENSE_URL}
+          href={API_LICENSE_URL}
           target='_blank'
           rel='noopener noreferrer'
           className='text-foreground font-medium hover:underline'

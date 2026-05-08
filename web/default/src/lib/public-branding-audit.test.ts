@@ -9,13 +9,15 @@ function readProjectFile(relativePath: string) {
 }
 
 describe('public branding audit', () => {
-  test('keeps the static app shell on Swan branding', () => {
+  test('keeps the static app shell on upstream API provider branding', () => {
     const indexHtml = readProjectFile('index.html')
 
-    expect(indexHtml).toContain('<title>天鹅 API</title>')
-    expect(indexHtml).toContain('content="天鹅 API"')
-    expect(indexHtml).toContain('href="/swan-logo.svg"')
+    expect(indexHtml).toContain('<title>API 上游提供商</title>')
+    expect(indexHtml).toContain('content="API 上游提供商"')
+    expect(indexHtml).toContain('href="/api-logo.svg"')
     expect(indexHtml).not.toContain('New API')
+    expect(indexHtml).not.toContain('天鹅')
+    expect(indexHtml).not.toContain('swan')
   })
 
   test('removes old New API copy from public-branding source files', () => {
@@ -26,8 +28,10 @@ describe('public branding audit', () => {
 
     expect(publicBranding).not.toContain('New API')
     expect(landingContent).not.toContain('New API')
-    expect(publicBranding).toContain('由天鹅 API 公共站点基础设施支持')
-    expect(landingContent).toContain('由天鹅 API 公共站点基础设施支持')
+    expect(publicBranding).not.toContain('天鹅 API')
+    expect(landingContent).not.toContain('天鹅 API')
+    expect(publicBranding).toContain('由 API 上游提供商公共站点基础设施支持')
+    expect(landingContent).toContain('由 API 上游提供商公共站点基础设施支持')
   })
 
   test('keeps public route components free of old visible brand labels', () => {
@@ -50,5 +54,6 @@ describe('public branding audit', () => {
     expect(sourceNotice).toContain('https://github.com/Leon-in/SwanAPI')
     expect(sourceNotice).toContain('https://github.com/QuantumNous/new-api')
     expect(sourceNotice).toContain('AGPL v3.0 License')
+    expect(sourceNotice).not.toContain('SwanAPI source')
   })
 })

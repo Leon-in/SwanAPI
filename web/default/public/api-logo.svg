@@ -1,0 +1,17 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">API 上游提供商</title>
+  <desc id="desc">Neutral API logo for the upstream API provider deployment.</desc>
+  <rect width="128" height="128" rx="32" fill="#071312"/>
+  <rect x="14" y="14" width="100" height="100" rx="26" fill="url(#paint0_linear)" stroke="#D7FF62" stroke-opacity="0.65" stroke-width="2"/>
+  <path d="M34 50C34 42.268 40.268 36 48 36H80C87.732 36 94 42.268 94 50V78C94 85.732 87.732 92 80 92H48C40.268 92 34 85.732 34 78V50Z" fill="#071312" fill-opacity="0.76" stroke="#F4FFF8" stroke-opacity="0.18"/>
+  <path d="M45 75L54 53H60L69 75H62.8L61.1 70.4H52.7L51 75H45ZM54.3 65.8H59.5L56.9 58.7L54.3 65.8Z" fill="#D7FF62"/>
+  <path d="M71 75V53H80.7C85.5 53 88.8 56.1 88.8 60.5C88.8 64.9 85.5 68 80.7 68H76.7V75H71ZM76.7 63.3H80.1C81.8 63.3 83 62.2 83 60.5C83 58.8 81.8 57.7 80.1 57.7H76.7V63.3Z" fill="#D7FF62"/>
+  <path d="M38 33L30 33C26.686 33 24 35.686 24 39V47" stroke="#D7FF62" stroke-width="4" stroke-linecap="round"/>
+  <path d="M90 95L98 95C101.314 95 104 92.314 104 89V81" stroke="#D7FF62" stroke-width="4" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="26" y1="20" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#143A35"/>
+      <stop offset="1" stop-color="#0A201D"/>
+    </linearGradient>
+  </defs>
+</svg>

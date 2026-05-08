@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
-  <title id="title">天鹅 API</title>
-  <desc id="desc">Emoji swan logo for the 天鹅 API deployment.</desc>
-  <rect width="128" height="128" rx="24" fill="#071312"/>
-  <path d="M20 96h88" stroke="#d7ff62" stroke-width="6" stroke-linecap="round" opacity=".8"/>
-  <text x="64" y="78" text-anchor="middle" font-size="64" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif">🦢</text>
-</svg>
