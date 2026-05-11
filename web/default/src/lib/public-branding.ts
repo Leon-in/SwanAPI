@@ -11,7 +11,7 @@ export const SWAN_PUBLIC_BRAND = {
   attribution: '由 API 上游提供商公共站点基础设施支持',
 } as const
 
-export const SWAN_PUBLIC_LAYOUT_ROOT = 'bg-[#071312] text-[#f4fff8]' as const
+export const SWAN_PUBLIC_LAYOUT_ROOT = 'dark bg-[#071312] text-[#f4fff8]' as const
 
 export const SWAN_PUBLIC_LAYOUT = {
   headerClassName:

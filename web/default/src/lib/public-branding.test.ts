@@ -14,6 +14,7 @@ describe('public branding', () => {
   })
 
   test('defines a reusable dark public layout skin', () => {
+    expect(SWAN_PUBLIC_LAYOUT_ROOT.split(/\s+/)).toContain('dark')
     expect(SWAN_PUBLIC_LAYOUT_ROOT).toContain('bg-[#071312]')
     expect(SWAN_PUBLIC_LAYOUT.headerClassName).toContain('bg-[#071312]/50')
     expect(SWAN_PUBLIC_LAYOUT.headerClassName).toContain('text-white')
