@@ -69,12 +69,6 @@ var defaultModelRatio = map[string]float64{
 	"o1-pro-2025-03-19":                75.0, // $150 / 1M tokens
 	"o3-mini":                          0.55,
 	"o3-mini-2025-01-31":               0.55,
-	"o3-mini-high":                     0.55,
-	"o3-mini-2025-01-31-high":          0.55,
-	"o3-mini-low":                      0.55,
-	"o3-mini-2025-01-31-low":           0.55,
-	"o3-mini-medium":                   0.55,
-	"o3-mini-2025-01-31-medium":        0.55,
 	"o3":                               1.0,  // $2 / 1M tokens
 	"o3-2025-04-16":                    1.0,  // $2 / 1M tokens
 	"o3-pro":                           10.0, // $20 / 1M tokens
@@ -87,10 +81,32 @@ var defaultModelRatio = map[string]float64{
 	"o4-mini-deep-research-2025-06-26": 1.0,  // $2 / 1M tokens
 	"gpt-4o-mini":                      0.075,
 	"gpt-4o-mini-2024-07-18":           0.075,
+	"chat-latest":                      2.5,
 	"gpt-4-turbo":                      5, // $0.01 / 1K tokens
 	"gpt-4-turbo-2024-04-09":           5, // $0.01 / 1K tokens
 	"gpt-4.5-preview":                  37.5,
 	"gpt-4.5-preview-2025-02-27":       37.5,
+	"gpt-5.5":                          2.5,
+	"gpt-5.5-2026-04-23":               2.5,
+	"gpt-5.5-pro":                      15,
+	"gpt-5.5-pro-2026-04-23":           15,
+	"gpt-5.4":                          1.25,
+	"gpt-5.4-2026-03-05":               1.25,
+	"gpt-5.4-pro":                      15,
+	"gpt-5.4-pro-2026-03-05":           15,
+	"gpt-5.4-mini":                     0.375,
+	"gpt-5.4-mini-2026-03-17":          0.375,
+	"gpt-5.4-nano":                     0.1,
+	"gpt-5.4-nano-2026-03-17":          0.1,
+	"gpt-5.2":                          0.875,
+	"gpt-5.2-chat-latest":              0.875,
+	"gpt-5.2-codex":                    0.875,
+	"gpt-5.2-pro":                      10.5,
+	"gpt-5.1":                          0.625,
+	"gpt-5.1-chat-latest":              0.625,
+	"gpt-5.1-codex":                    0.625,
+	"gpt-5.1-codex-max":                0.625,
+	"gpt-5.1-codex-mini":               0.125,
 	"gpt-5":                            0.625,
 	"gpt-5-2025-08-07":                 0.625,
 	"gpt-5-chat-latest":                0.625,
@@ -113,117 +129,131 @@ var defaultModelRatio = map[string]float64{
 	"text-curie-001":         1,
 	//"text-davinci-002":               10,
 	//"text-davinci-003":               10,
-	"text-davinci-edit-001":                     10,
-	"code-davinci-edit-001":                     10,
-	"whisper-1":                                 15,  // $0.006 / minute -> $0.006 / 150 words -> $0.006 / 200 tokens -> $0.03 / 1k tokens
-	"tts-1":                                     7.5, // 1k characters -> $0.015
-	"tts-1-1106":                                7.5, // 1k characters -> $0.015
-	"tts-1-hd":                                  15,  // 1k characters -> $0.03
-	"tts-1-hd-1106":                             15,  // 1k characters -> $0.03
-	"davinci":                                   10,
-	"curie":                                     10,
-	"babbage":                                   10,
-	"ada":                                       10,
-	"text-embedding-3-small":                    0.01,
-	"text-embedding-3-large":                    0.065,
-	"text-embedding-ada-002":                    0.05,
-	"text-search-ada-doc-001":                   10,
-	"text-moderation-stable":                    0.1,
-	"text-moderation-latest":                    0.1,
-	"claude-3-haiku-20240307":                   0.125, // $0.25 / 1M tokens
-	"claude-3-5-haiku-20241022":                 0.5,   // $1 / 1M tokens
-	"claude-haiku-4-5-20251001":                 0.5,   // $1 / 1M tokens
-	"claude-3-sonnet-20240229":                  1.5,   // $3 / 1M tokens
-	"claude-3-5-sonnet-20240620":                1.5,
-	"claude-3-5-sonnet-20241022":                1.5,
-	"claude-3-7-sonnet-20250219":                1.5,
-	"claude-3-7-sonnet-20250219-thinking":       1.5,
-	"claude-sonnet-4-20250514":                  1.5,
-	"claude-sonnet-4-5-20250929":                1.5,
-	"claude-opus-4-5-20251101":                  2.5,
-	"claude-opus-4-6":                           2.5,
-	"claude-opus-4-6-max":                       2.5,
-	"claude-opus-4-6-high":                      2.5,
-	"claude-opus-4-6-medium":                    2.5,
-	"claude-opus-4-6-low":                       2.5,
-	"claude-opus-4-7":                           2.5,
-	"claude-opus-4-7-max":                       2.5,
-	"claude-opus-4-7-xhigh":                     2.5,
-	"claude-opus-4-7-high":                      2.5,
-	"claude-opus-4-7-medium":                    2.5,
-	"claude-opus-4-7-low":                       2.5,
-	"claude-3-opus-20240229":                    7.5, // $15 / 1M tokens
-	"claude-opus-4-20250514":                    7.5,
-	"claude-opus-4-1-20250805":                  7.5,
-	"ERNIE-4.0-8K":                              0.120 * RMB,
-	"ERNIE-3.5-8K":                              0.012 * RMB,
-	"ERNIE-3.5-8K-0205":                         0.024 * RMB,
-	"ERNIE-3.5-8K-1222":                         0.012 * RMB,
-	"ERNIE-Bot-8K":                              0.024 * RMB,
-	"ERNIE-3.5-4K-0205":                         0.012 * RMB,
-	"ERNIE-Speed-8K":                            0.004 * RMB,
-	"ERNIE-Speed-128K":                          0.004 * RMB,
-	"ERNIE-Lite-8K-0922":                        0.008 * RMB,
-	"ERNIE-Lite-8K-0308":                        0.003 * RMB,
-	"ERNIE-Tiny-8K":                             0.001 * RMB,
-	"BLOOMZ-7B":                                 0.004 * RMB,
-	"Embedding-V1":                              0.002 * RMB,
-	"bge-large-zh":                              0.002 * RMB,
-	"bge-large-en":                              0.002 * RMB,
-	"tao-8k":                                    0.002 * RMB,
-	"PaLM-2":                                    1,
-	"gemini-1.5-pro-latest":                     1.25, // $3.5 / 1M tokens
-	"gemini-1.5-flash-latest":                   0.075,
-	"gemini-2.0-flash":                          0.05,
-	"gemini-2.5-pro-exp-03-25":                  0.625,
-	"gemini-2.5-pro-preview-03-25":              0.625,
-	"gemini-2.5-pro":                            0.625,
-	"gemini-2.5-flash-preview-04-17":            0.075,
-	"gemini-2.5-flash-preview-04-17-thinking":   0.075,
-	"gemini-2.5-flash-preview-04-17-nothinking": 0.075,
-	"gemini-2.5-flash-preview-05-20":            0.075,
-	"gemini-2.5-flash-preview-05-20-thinking":   0.075,
-	"gemini-2.5-flash-preview-05-20-nothinking": 0.075,
-	"gemini-2.5-flash-thinking-*":               0.075, // 用于为后续所有2.5 flash thinking budget 模型设置默认倍率
-	"gemini-2.5-pro-thinking-*":                 0.625, // 用于为后续所有2.5 pro thinking budget 模型设置默认倍率
-	"gemini-2.5-flash-lite-preview-thinking-*":  0.05,
-	"gemini-2.5-flash-lite-preview-06-17":       0.05,
-	"gemini-2.5-flash":                          0.15,
-	"gemini-robotics-er-1.5-preview":            0.15,
-	"gemini-embedding-001":                      0.075,
-	"text-embedding-004":                        0.001,
-	"chatglm_turbo":                             0.3572,     // ￥0.005 / 1k tokens
-	"chatglm_pro":                               0.7143,     // ￥0.01 / 1k tokens
-	"chatglm_std":                               0.3572,     // ￥0.005 / 1k tokens
-	"chatglm_lite":                              0.1429,     // ￥0.002 / 1k tokens
-	"glm-4":                                     7.143,      // ￥0.1 / 1k tokens
-	"glm-4v":                                    0.05 * RMB, // ￥0.05 / 1k tokens
-	"glm-4-alltools":                            0.1 * RMB,  // ￥0.1 / 1k tokens
-	"glm-3-turbo":                               0.3572,
-	"glm-4-plus":                                0.05 * RMB,
-	"glm-4-0520":                                0.1 * RMB,
-	"glm-4-air":                                 0.001 * RMB,
-	"glm-4-airx":                                0.01 * RMB,
-	"glm-4-long":                                0.001 * RMB,
-	"glm-4-flash":                               0,
-	"glm-4v-plus":                               0.01 * RMB,
-	"qwen-turbo":                                0.8572, // ￥0.012 / 1k tokens
-	"qwen-plus":                                 10,     // ￥0.14 / 1k tokens
-	"text-embedding-v1":                         0.05,   // ￥0.0007 / 1k tokens
-	"SparkDesk-v1.1":                            1.2858, // ￥0.018 / 1k tokens
-	"SparkDesk-v2.1":                            1.2858, // ￥0.018 / 1k tokens
-	"SparkDesk-v3.1":                            1.2858, // ￥0.018 / 1k tokens
-	"SparkDesk-v3.5":                            1.2858, // ￥0.018 / 1k tokens
-	"SparkDesk-v4.0":                            1.2858,
-	"360GPT_S2_V9":                              0.8572, // ¥0.012 / 1k tokens
-	"360gpt-turbo":                              0.0858, // ¥0.0012 / 1k tokens
-	"360gpt-turbo-responsibility-8k":            0.8572, // ¥0.012 / 1k tokens
-	"360gpt-pro":                                0.8572, // ¥0.012 / 1k tokens
-	"360gpt2-pro":                               0.8572, // ¥0.012 / 1k tokens
-	"embedding-bert-512-v1":                     0.0715, // ¥0.001 / 1k tokens
-	"embedding_s1_v1":                           0.0715, // ¥0.001 / 1k tokens
-	"semantic_similarity_s1_v1":                 0.0715, // ¥0.001 / 1k tokens
-	"hunyuan":                                   7.143,  // ¥0.1 / 1k tokens  // https://cloud.tencent.com/document/product/1729/97731#e0e6be58-60c8-469f-bdeb-6c264ce3b4d0
+	"text-davinci-edit-001":                 10,
+	"code-davinci-edit-001":                 10,
+	"whisper-1":                             15,  // $0.006 / minute -> $0.006 / 150 words -> $0.006 / 200 tokens -> $0.03 / 1k tokens
+	"tts-1":                                 7.5, // 1k characters -> $0.015
+	"tts-1-1106":                            7.5, // 1k characters -> $0.015
+	"tts-1-hd":                              15,  // 1k characters -> $0.03
+	"tts-1-hd-1106":                         15,  // 1k characters -> $0.03
+	"davinci":                               10,
+	"curie":                                 10,
+	"babbage":                               10,
+	"ada":                                   10,
+	"text-embedding-3-small":                0.01,
+	"text-embedding-3-large":                0.065,
+	"text-embedding-ada-002":                0.05,
+	"text-search-ada-doc-001":               10,
+	"text-moderation-stable":                0.1,
+	"text-moderation-latest":                0.1,
+	"claude-3-haiku-20240307":               0.125, // $0.25 / 1M tokens
+	"claude-3-5-haiku-20241022":             0.5,   // $1 / 1M tokens
+	"claude-haiku-4-5-20251001":             0.5,   // $1 / 1M tokens
+	"claude-3-sonnet-20240229":              1.5,   // $3 / 1M tokens
+	"claude-3-5-sonnet-20240620":            1.5,
+	"claude-3-5-sonnet-20241022":            1.5,
+	"claude-3-7-sonnet-20250219":            1.5,
+	"claude-sonnet-4-20250514":              1.5,
+	"claude-sonnet-4-5-20250929":            1.5,
+	"claude-sonnet-4-6":                     1.5,
+	"claude-opus-4-5-20251101":              2.5,
+	"claude-opus-4-6":                       2.5,
+	"claude-opus-4-7":                       2.5,
+	"claude-3-opus-20240229":                7.5, // $15 / 1M tokens
+	"claude-opus-4-20250514":                7.5,
+	"claude-opus-4-1-20250805":              7.5,
+	"ERNIE-4.0-8K":                          0.120 * RMB,
+	"ERNIE-3.5-8K":                          0.012 * RMB,
+	"ERNIE-3.5-8K-0205":                     0.024 * RMB,
+	"ERNIE-3.5-8K-1222":                     0.012 * RMB,
+	"ERNIE-Bot-8K":                          0.024 * RMB,
+	"ERNIE-3.5-4K-0205":                     0.012 * RMB,
+	"ERNIE-Speed-8K":                        0.004 * RMB,
+	"ERNIE-Speed-128K":                      0.004 * RMB,
+	"ERNIE-Lite-8K-0922":                    0.008 * RMB,
+	"ERNIE-Lite-8K-0308":                    0.003 * RMB,
+	"ERNIE-Tiny-8K":                         0.001 * RMB,
+	"BLOOMZ-7B":                             0.004 * RMB,
+	"Embedding-V1":                          0.002 * RMB,
+	"bge-large-zh":                          0.002 * RMB,
+	"bge-large-en":                          0.002 * RMB,
+	"tao-8k":                                0.002 * RMB,
+	"PaLM-2":                                1,
+	"gemini-1.5-pro-latest":                 1.25, // $3.5 / 1M tokens
+	"gemini-1.5-flash-latest":               0.075,
+	"gemini-2.0-flash":                      0.05,
+	"gemini-2.5-pro-exp-03-25":              0.625,
+	"gemini-2.5-pro-preview-03-25":          0.625,
+	"gemini-2.5-pro":                        0.625,
+	"gemini-2.5-flash-preview-04-17":        0.075,
+	"gemini-2.5-flash-preview-05-20":        0.075,
+	"gemini-2.5-flash-preview-09-2025":      0.15,
+	"gemini-2.5-flash-lite-preview-06-17":   0.05,
+	"gemini-2.5-flash-lite-preview-09-2025": 0.05,
+	"gemini-2.5-flash-lite":                 0.05,
+	"gemini-2.5-flash":                      0.15,
+	"gemini-3-pro-preview":                  1,
+	"gemini-3-pro-image-preview":            1,
+	"gemini-3-flash-preview":                0.25,
+	"gemini-3.1-pro-preview":                1,
+	"gemini-3.1-pro-preview-customtools":    1,
+	"gemini-3.1-flash-lite-preview":         0.125,
+	"gemini-3.1-flash-live-preview":         0.375,
+	"gemini-3.1-flash-image-preview":        0.25,
+	"gemini-robotics-er-1.5-preview":        0.15,
+	"gemini-embedding-001":                  0.075,
+	"text-embedding-004":                    0.001,
+	"chatglm_turbo":                         0.3572,     // ￥0.005 / 1k tokens
+	"chatglm_pro":                           0.7143,     // ￥0.01 / 1k tokens
+	"chatglm_std":                           0.3572,     // ￥0.005 / 1k tokens
+	"chatglm_lite":                          0.1429,     // ￥0.002 / 1k tokens
+	"glm-4":                                 7.143,      // ￥0.1 / 1k tokens
+	"glm-4v":                                0.05 * RMB, // ￥0.05 / 1k tokens
+	"glm-4-alltools":                        0.1 * RMB,  // ￥0.1 / 1k tokens
+	"glm-3-turbo":                           0.3572,
+	"glm-4-plus":                            0.05 * RMB,
+	"glm-4-0520":                            0.1 * RMB,
+	"glm-4-air":                             0.001 * RMB,
+	"glm-4-airx":                            0.01 * RMB,
+	"glm-4-long":                            0.001 * RMB,
+	"glm-4-flash":                           0,
+	"glm-4v-plus":                           0.01 * RMB,
+	"GLM-5.1":                               0.7,
+	"GLM-5":                                 0.5,
+	"GLM-5-Turbo":                           0.6,
+	"GLM-4.7":                               0.3,
+	"GLM-4.7-FlashX":                        0.035,
+	"GLM-4.7-Flash":                         0,
+	"GLM-4.6":                               0.3,
+	"GLM-4.5":                               0.3,
+	"GLM-4.5-X":                             1.1,
+	"GLM-4.5-Air":                           0.1,
+	"GLM-4.5-AirX":                          0.55,
+	"GLM-4.5-Flash":                         0,
+	"GLM-4-32B-0414-128K":                   0.05,
+	"GLM-5V-Turbo":                          0.6,
+	"GLM-4.6V":                              0.15,
+	"GLM-4.6V-FlashX":                       0.02,
+	"GLM-4.6V-Flash":                        0,
+	"GLM-4.5V":                              0.3,
+	"GLM-OCR":                               0.015,
+	"qwen-turbo":                            0.8572, // ￥0.012 / 1k tokens
+	"qwen-plus":                             10,     // ￥0.14 / 1k tokens
+	"text-embedding-v1":                     0.05,   // ￥0.0007 / 1k tokens
+	"SparkDesk-v1.1":                        1.2858, // ￥0.018 / 1k tokens
+	"SparkDesk-v2.1":                        1.2858, // ￥0.018 / 1k tokens
+	"SparkDesk-v3.1":                        1.2858, // ￥0.018 / 1k tokens
+	"SparkDesk-v3.5":                        1.2858, // ￥0.018 / 1k tokens
+	"SparkDesk-v4.0":                        1.2858,
+	"360GPT_S2_V9":                          0.8572, // ¥0.012 / 1k tokens
+	"360gpt-turbo":                          0.0858, // ¥0.0012 / 1k tokens
+	"360gpt-turbo-responsibility-8k":        0.8572, // ¥0.012 / 1k tokens
+	"360gpt-pro":                            0.8572, // ¥0.012 / 1k tokens
+	"360gpt2-pro":                           0.8572, // ¥0.012 / 1k tokens
+	"embedding-bert-512-v1":                 0.0715, // ¥0.001 / 1k tokens
+	"embedding_s1_v1":                       0.0715, // ¥0.001 / 1k tokens
+	"semantic_similarity_s1_v1":             0.0715, // ¥0.001 / 1k tokens
+	"hunyuan":                               7.143,  // ¥0.1 / 1k tokens  // https://cloud.tencent.com/document/product/1729/97731#e0e6be58-60c8-469f-bdeb-6c264ce3b4d0
 	// https://platform.lingyiwanwu.com/docs#-计费单元
 	// 已经按照 7.2 来换算美元价格
 	"yi-34b-chat-0205":       0.18,
@@ -249,20 +279,33 @@ var defaultModelRatio = map[string]float64{
 	"deepseek-chat":          0.27 / 2,
 	"deepseek-coder":         0.27 / 2,
 	"deepseek-reasoner":      0.55 / 2, // 0.55 / 1k tokens
+	"deepseek-v4-flash":      0.07,
+	"deepseek-v4-pro":        0.2175,
 	// Perplexity online 模型对搜索额外收费，有需要应自行调整，此处不计入搜索费用
 	"llama-3-sonar-small-32k-chat":   0.2 / 1000 * USD,
 	"llama-3-sonar-small-32k-online": 0.2 / 1000 * USD,
 	"llama-3-sonar-large-32k-chat":   1 / 1000 * USD,
 	"llama-3-sonar-large-32k-online": 1 / 1000 * USD,
 	// grok
-	"grok-3-beta":           1.5,
-	"grok-3-mini-beta":      0.15,
-	"grok-2":                1,
-	"grok-2-vision":         1,
-	"grok-beta":             2.5,
-	"grok-vision-beta":      2.5,
-	"grok-3-fast-beta":      2.5,
-	"grok-3-mini-fast-beta": 0.3,
+	"grok-3-beta":                  1.5,
+	"grok-3-mini-beta":             0.15,
+	"grok-2":                       1,
+	"grok-2-vision":                1,
+	"grok-beta":                    2.5,
+	"grok-vision-beta":             2.5,
+	"grok-3-fast-beta":             2.5,
+	"grok-3-mini-fast-beta":        0.3,
+	"grok-4.3":                     0.625,
+	"grok-4.3-latest":              0.625,
+	"grok-latest":                  0.625,
+	"grok-4.20":                    0.625,
+	"grok-4.20-0309":               0.625,
+	"grok-4.20-multi-agent-0309":   0.625,
+	"grok-4.20-multi-agent":        0.625,
+	"grok-4.20-0309-reasoning":     0.625,
+	"grok-4.20-reasoning":          0.625,
+	"grok-4.20-0309-non-reasoning": 0.625,
+	"grok-4.20-non-reasoning":      0.625,
 	// submodel
 	"NousResearch/Hermes-4-405B-FP8":          0.8,
 	"Qwen/Qwen3-235B-A22B-Thinking-2507":      0.6,
@@ -333,10 +376,63 @@ var modelRatioMap = types.NewRWMap[string, float64]()
 var completionRatioMap = types.NewRWMap[string, float64]()
 
 var defaultCompletionRatio = map[string]float64{
-	"gpt-4-gizmo-*":  2,
-	"gpt-4o-gizmo-*": 3,
-	"gpt-4-all":      2,
-	"gpt-image-1":    8,
+	"gpt-4-gizmo-*":                      2,
+	"gpt-4o-gizmo-*":                     3,
+	"gpt-4-all":                          2,
+	"gpt-image-1":                        8,
+	"chat-latest":                        6,
+	"gpt-5.5":                            6,
+	"gpt-5.5-2026-04-23":                 6,
+	"gpt-5.5-pro":                        6,
+	"gpt-5.5-pro-2026-04-23":             6,
+	"gpt-5.4":                            6,
+	"gpt-5.4-2026-03-05":                 6,
+	"gpt-5.4-pro":                        6,
+	"gpt-5.4-pro-2026-03-05":             6,
+	"gpt-5.4-mini":                       6,
+	"gpt-5.4-mini-2026-03-17":            6,
+	"gpt-5.4-nano":                       6.25,
+	"gpt-5.4-nano-2026-03-17":            6.25,
+	"claude-sonnet-4-6":                  5,
+	"deepseek-v4-flash":                  2,
+	"deepseek-v4-pro":                    2,
+	"grok-4.3":                           2,
+	"grok-4.3-latest":                    2,
+	"grok-latest":                        2,
+	"grok-4.20":                          2,
+	"grok-4.20-0309":                     2,
+	"grok-4.20-multi-agent-0309":         2,
+	"grok-4.20-multi-agent":              2,
+	"grok-4.20-0309-reasoning":           2,
+	"grok-4.20-reasoning":                2,
+	"grok-4.20-0309-non-reasoning":       2,
+	"grok-4.20-non-reasoning":            2,
+	"gemini-2.5-flash-preview-09-2025":   2.5 / 0.3,
+	"gemini-3-flash-preview":             6,
+	"gemini-3.1-pro-preview":             6,
+	"gemini-3.1-pro-preview-customtools": 6,
+	"gemini-3.1-flash-lite-preview":      6,
+	"gemini-3.1-flash-live-preview":      6,
+	"gemini-3.1-flash-image-preview":     120,
+	"GLM-5.1":                            3.142857142857143,
+	"GLM-5":                              3.2,
+	"GLM-5-Turbo":                        3.3333333333333335,
+	"GLM-4.7":                            3.6666666666666665,
+	"GLM-4.7-FlashX":                     5.714285714285714,
+	"GLM-4.7-Flash":                      0,
+	"GLM-4.6":                            3.6666666666666665,
+	"GLM-4.5":                            3.6666666666666665,
+	"GLM-4.5-X":                          4.045454545454546,
+	"GLM-4.5-Air":                        5.5,
+	"GLM-4.5-AirX":                       4.090909090909091,
+	"GLM-4.5-Flash":                      0,
+	"GLM-4-32B-0414-128K":                1,
+	"GLM-5V-Turbo":                       3.3333333333333335,
+	"GLM-4.6V":                           3,
+	"GLM-4.6V-FlashX":                    10,
+	"GLM-4.6V-Flash":                     0,
+	"GLM-4.5V":                           3,
+	"GLM-OCR":                            1,
 }
 
 // InitRatioSettings initializes all model related settings maps
@@ -390,14 +486,6 @@ func GetModelPrice(name string, printErr bool) (float64, bool) {
 
 func UpdateModelRatioByJSONString(jsonStr string) error {
 	return types.LoadFromJsonStringWithCallback(modelRatioMap, jsonStr, InvalidateExposedDataCache)
-}
-
-// 处理带有思考预算的模型名称，方便统一定价
-func handleThinkingBudgetModel(name, prefix, wildcard string) string {
-	if strings.HasPrefix(name, prefix) && strings.Contains(name, "-thinking-") {
-		return wildcard
-	}
-	return name
 }
 
 func GetModelRatio(name string) (float64, bool, string) {
@@ -572,8 +660,8 @@ func getHardcodedCompletionModelRatio(name string) (float64, bool) {
 			return 8, false
 		} else if strings.HasPrefix(name, "gemini-2.5-flash") { // 处理不同的flash模型倍率
 			if strings.HasPrefix(name, "gemini-2.5-flash-preview") {
-				if strings.HasSuffix(name, "-nothinking") {
-					return 4, false
+				if strings.HasPrefix(name, "gemini-2.5-flash-preview-09-2025") {
+					return 2.5 / 0.3, false
 				}
 				return 3.5 / 0.15, false
 			}
@@ -583,6 +671,8 @@ func getHardcodedCompletionModelRatio(name string) (float64, bool) {
 			return 2.5 / 0.3, false
 		} else if strings.HasPrefix(name, "gemini-robotics-er-1.5") {
 			return 2.5 / 0.3, false
+		} else if strings.HasPrefix(name, "gemini-3-flash") {
+			return 6, false
 		} else if strings.HasPrefix(name, "gemini-3-pro") {
 			if strings.HasPrefix(name, "gemini-3-pro-image") {
 				return 60, false
@@ -723,15 +813,6 @@ func GetAudioCompletionRatioCopy() map[string]float64 {
 
 // 转换模型名，减少渠道必须配置各种带参数模型
 func FormatMatchingModelName(name string) string {
-
-	if strings.HasPrefix(name, "gemini-2.5-flash-lite") {
-		name = handleThinkingBudgetModel(name, "gemini-2.5-flash-lite", "gemini-2.5-flash-lite-thinking-*")
-	} else if strings.HasPrefix(name, "gemini-2.5-flash") {
-		name = handleThinkingBudgetModel(name, "gemini-2.5-flash", "gemini-2.5-flash-thinking-*")
-	} else if strings.HasPrefix(name, "gemini-2.5-pro") {
-		name = handleThinkingBudgetModel(name, "gemini-2.5-pro", "gemini-2.5-pro-thinking-*")
-	}
-
 	if strings.HasPrefix(name, "gpt-4-gizmo") {
 		name = "gpt-4-gizmo-*"
 	}
